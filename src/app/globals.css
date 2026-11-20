@@ -1,0 +1,350 @@
+@import "tailwindcss";
+
+@theme {
+  /* ==========================================================================
+     TYPOGRAPHY TOKENS
+     Inspired by precision neo-grotesque technical fonts (Geist, Inter, SF Pro)
+     ========================================================================== */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* ==========================================================================
+     COLOR TOKENS (Baseus Precision Tech-Aesthetic)
+     - High-energy Tech Amber / Yellow for primary CTAs & charging indicators
+     - Deep Carbon / Titanium surfaces for high-tech premium accents
+     - Clean Neutral Porcelain / Crisp Slate backgrounds for product contrast
+     - Dedicated Tech Accent signals (GaN Cyan, Eco Green, Hot Deal Red)
+     ========================================================================== */
+  --color-brand-primary: #FFB800;
+  --color-brand-primary-hover: #FFA300;
+  --color-brand-accent: #FFCC00;
+  --color-brand-amber-light: #FFFBEB;
+  --color-brand-amber-muted: #FEF3C7;
+  --color-brand-amber-border: #FCD34D;
+  
+  /* Dark Tech Surfaces */
+  --color-brand-dark: #0C0E14;
+  --color-brand-dark-surface: #161A23;
+  --color-brand-dark-card: #1D2330;
+  --color-brand-dark-border: rgba(255, 255, 255, 0.1);
+
+  /* Light Canvas & Product Cards */
+  --color-surface-canvas: #FFFFFF;
+  --color-surface-card: #F8F9FA;
+  --color-surface-card-hover: #F1F3F5;
+  --color-surface-subtle: #F3F4F6;
+  --color-surface-muted: #E9ECEF;
+
+  /* Borders */
+  --color-tech-border: #E5E7EB;
+  --color-tech-border-subtle: #F1F3F5;
+  --color-tech-border-strong: #D1D5DB;
+
+  /* Indicator Colors */
+  --color-tech-cyan: #0284C7;
+  --color-tech-green: #10B981;
+  --color-tech-red: #EF4444;
+
+  /* Text & Foreground */
+  --color-text-main: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748B;
+  --color-text-subtle: #94A3B8;
+
+  /* ==========================================================================
+     BORDER RADIUS TOKENS (Precision Hardware Chamfers)
+     ========================================================================== */
+  --radius-tech-xs: 4px;
+  --radius-tech-sm: 8px;
+  --radius-tech-md: 12px;
+  --radius-tech-lg: 16px;
+  --radius-tech-xl: 24px;
+  --radius-tech-pill: 9999px;
+
+  /* ==========================================================================
+     SHADOW TOKENS
+     Multi-layered soft ambient shadows for tech accessories
+     ========================================================================== */
+  --shadow-tech-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-tech-card: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 4px -1px rgba(15, 23, 42, 0.02);
+  --shadow-tech-hover: 0 20px 32px -8px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  --shadow-brand-glow: 0 6px 20px -2px rgba(255, 184, 0, 0.38);
+  --shadow-dark-card: 0 12px 30px -8px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================================
+   GLOBAL BASE STYLES
+   ========================================================================== */
+:root {
+  color-scheme: light;
+}
+
+body {
+  color: var(--color-text-main);
+  background-color: var(--color-surface-canvas);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   REUSABLE DESIGN SYSTEM UTILITIES & COMPONENTS
+   ========================================================================== */
+
+/* 1. Containers & Layout Primitives */
+.tech-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .tech-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.tech-container-wide {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .tech-container-wide {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-container-wide {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* 2. Frosted Glass Sticky Header Navigation */
+.nav-blur {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+}
+
+/* 3. Tech Button Primitives */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-tech-sm);
+  background-color: var(--color-brand-primary);
+  color: #0F172A;
+  box-shadow: 0 4px 12px rgba(255, 184, 0, 0.25);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-primary-hover);
+  box-shadow: 0 6px 18px rgba(255, 184, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(255, 184, 0, 0.2);
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-tech-sm);
+  background-color: #0F172A;
+  color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid #1E293B;
+}
+
+.btn-dark:hover {
+  background-color: #1E293B;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-dark:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-tech-sm);
+  background-color: transparent;
+  color: #0F172A;
+  border: 1px solid #D1D5DB;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-outline:hover {
+  background-color: #F8F9FA;
+  border-color: #94A3B8;
+  transform: translateY(-1px);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-tech-sm);
+  background-color: transparent;
+  color: #475569;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background-color: #F1F3F5;
+  color: #0F172A;
+}
+
+.btn-pill {
+  border-radius: var(--radius-tech-pill);
+}
+
+/* 4. Product Card & Hardware Presentation Primitives */
+.tech-card {
+  background-color: var(--color-surface-card);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  border-radius: var(--radius-tech-lg);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-tech-hover);
+  border-color: #CBD5E1;
+}
+
+.tech-card-dark {
+  background-color: var(--color-brand-dark-surface);
+  border: 1px solid var(--color-brand-dark-border);
+  border-radius: var(--radius-tech-lg);
+  color: #FFFFFF;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-card-dark:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-dark-card);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 5. Hardware Spec Badges (Wattage, GaN chips, Protocols) */
+.spec-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-tech-pill);
+  background-color: #FFFFFF;
+  color: #334155;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.spec-chip-brand {
+  background-color: var(--color-brand-amber-light);
+  color: #92400E;
+  border-color: var(--color-brand-amber-border);
+}
+
+.spec-chip-dark {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #F8FAFC;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 6. Typography Helpers */
+.tech-heading-hero {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #0F172A;
+}
+
+.tech-heading-section {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #0F172A;
+}
+
+.tech-subheading {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #64748B;
+}
+
+.tech-caption {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F59E0B;
+}
