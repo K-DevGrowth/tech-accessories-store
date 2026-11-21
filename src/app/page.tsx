@@ -7,7 +7,7 @@ import { ProductCard } from "@/components/ui/product-card";
 import { Navbar } from "@/components/ui/navbar";
 
 export default function HomePage() {
-  const [cartCount, setCartCount] = useState(2);
+  const [cartCount, setCartCount] = useState(0);
   const [cartOpen, setCartOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -155,7 +155,7 @@ export default function HomePage() {
                 </button>
               </div>
 
-              <div className="divide-y divide-slate-100 mt-4 space-y-3">
+              {/* <div className="divide-y divide-slate-100 mt-4 space-y-3">
                 <div className="flex gap-3 py-3 items-center">
                   <div className="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center text-xs font-mono font-bold text-slate-700">
                     ANC
@@ -183,13 +183,12 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="pt-4 border-t border-slate-100 space-y-3">
               <div className="flex justify-between text-sm font-bold text-slate-900">
                 <span>Tổng cộng:</span>
-                <span>3.040.000₫</span>
               </div>
               <Button
                 variant="primary"
