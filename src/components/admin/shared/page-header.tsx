@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import type { ReactNode } from "react";
 
 export default function PageHeader({
   title,
@@ -7,7 +7,7 @@ export default function PageHeader({
 }: {
   title?: string;
   description?: string;
-  action?: boolean;
+  action?: ReactNode;
 }) {
   if (!title && !description && !action) return null;
 
@@ -26,15 +26,7 @@ export default function PageHeader({
         </div>
       </div>
 
-      {action && (
-        <Button
-          variant="primary"
-          size="sm"
-          className="h-9 font-bold shrink-0 text-xs sm:text-sm px-3 sm:px-4"
-        >
-          <span>+ Thêm</span>
-        </Button>
-      )}
+      {action && <div className="shrink-0">{action}</div>}
     </div>
   );
 }

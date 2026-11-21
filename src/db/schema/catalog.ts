@@ -19,6 +19,9 @@ export const categories = pgTable("categories", {
   createdAt: createdAt(),
 });
 
+export type Category = typeof categories.$inferSelect;
+export type NewCategory = typeof categories.$inferInsert;
+
 // Thương hiệu
 export const brands = pgTable("brands", {
   id: pk(),
