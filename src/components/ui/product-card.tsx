@@ -29,7 +29,7 @@ export function ProductCard({
       {/* Product Image Stage */}
       <div className="relative aspect-square w-full bg-[#F6F7F9] flex items-center justify-center p-6 overflow-hidden">
         {tag && (
-          <span className="absolute top-3.5 left-3.5 z-10 text-[10px] font-bold font-mono uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-900 text-[#FFB800]">
+          <span className="absolute top-3.5 left-3.5 z-10 text-[10px] font-bold font-mono uppercase tracking-wider px-2 py-0.5 rounded-md bg-brand-navy text-brand-accent border border-indigo-500/20">
             {tag}
           </span>
         )}
@@ -71,7 +71,7 @@ export function ProductCard({
           )}
 
           {/* Title */}
-          <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug line-clamp-2 group-hover:text-amber-600 transition-colors">
+          <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug line-clamp-2 group-hover:text-brand-primary transition-colors">
             {title}
           </h3>
 

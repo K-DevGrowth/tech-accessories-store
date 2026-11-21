@@ -13,26 +13,32 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 
   /* ==========================================================================
-     COLOR TOKENS (Baseus Precision Tech-Aesthetic)
-     - High-energy Tech Amber / Yellow for primary CTAs & charging indicators
-     - Deep Carbon / Titanium surfaces for high-tech premium accents
-     - Clean Neutral Porcelain / Crisp Slate backgrounds for product contrast
-     - Dedicated Tech Accent signals (GaN Cyan, Eco Green, Hot Deal Red)
+     COLOR TOKENS (Palette: Indigo, Trắng, Đen, Xanh Đen)
+     - Indigo: Màu thương hiệu, điểm nhấn công nghệ hiện đại
+     - Trắng: Nền sạch, tương phản cao, thẻ canvas
+     - Đen: Màu văn bản sắc nét, nút bấm cao cấp
+     - Xanh Đen (Midnight Navy): Bề mặt công nghệ cao cấp, thẻ dark mode
      ========================================================================== */
-  --color-brand-primary: #FFB800;
-  --color-brand-primary-hover: #FFA300;
-  --color-brand-accent: #FFCC00;
-  --color-brand-amber-light: #FFFBEB;
-  --color-brand-amber-muted: #FEF3C7;
-  --color-brand-amber-border: #FCD34D;
+  --color-brand-primary: #4F46E5;
+  --color-brand-primary-hover: #4338CA;
+  --color-brand-accent: #6366F1;
+  --color-brand-indigo-light: #EEF2FF;
+  --color-brand-indigo-muted: #E0E7FF;
+  --color-brand-indigo-border: #C7D2FE;
+
+  /* Xanh Đen (Midnight Navy) Surfaces */
+  --color-brand-navy: #0B132B;
+  --color-brand-navy-surface: #101935;
+  --color-brand-navy-card: #152244;
+  --color-brand-navy-border: rgba(255, 255, 255, 0.12);
 
   /* Dark Tech Surfaces */
-  --color-brand-dark: #0C0E14;
-  --color-brand-dark-surface: #161A23;
-  --color-brand-dark-card: #1D2330;
-  --color-brand-dark-border: rgba(255, 255, 255, 0.1);
+  --color-brand-dark: #0B132B;
+  --color-brand-dark-surface: #101935;
+  --color-brand-dark-card: #152244;
+  --color-brand-dark-border: rgba(255, 255, 255, 0.12);
 
-  /* Light Canvas & Product Cards */
+  /* Light Canvas & Product Cards (Trắng) */
   --color-surface-canvas: #FFFFFF;
   --color-surface-card: #F8F9FA;
   --color-surface-card-hover: #F1F3F5;
@@ -49,9 +55,9 @@
   --color-tech-green: #10B981;
   --color-tech-red: #EF4444;
 
-  /* Text & Foreground */
-  --color-text-main: #0F172A;
-  --color-text-secondary: #475569;
+  /* Text & Foreground (Đen & Xanh Đen) */
+  --color-text-main: #0B132B;
+  --color-text-secondary: #334155;
   --color-text-muted: #64748B;
   --color-text-subtle: #94A3B8;
 
@@ -70,10 +76,10 @@
      Multi-layered soft ambient shadows for tech accessories
      ========================================================================== */
   --shadow-tech-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-  --shadow-tech-card: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 4px -1px rgba(15, 23, 42, 0.02);
-  --shadow-tech-hover: 0 20px 32px -8px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-  --shadow-brand-glow: 0 6px 20px -2px rgba(255, 184, 0, 0.38);
-  --shadow-dark-card: 0 12px 30px -8px rgba(0, 0, 0, 0.45);
+  --shadow-tech-card: 0 4px 16px -2px rgba(11, 19, 43, 0.06), 0 1px 4px -1px rgba(11, 19, 43, 0.03);
+  --shadow-tech-hover: 0 20px 32px -8px rgba(79, 70, 229, 0.15), 0 4px 10px -2px rgba(11, 19, 43, 0.04);
+  --shadow-brand-glow: 0 6px 20px -2px rgba(79, 70, 229, 0.38);
+  --shadow-dark-card: 0 12px 30px -8px rgba(0, 0, 0, 0.55);
 }
 
 /* ==========================================================================
@@ -82,37 +88,37 @@
 :root {
   color-scheme: light;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(0.145 0.04 260);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.145 0.04 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.145 0.04 260);
+  --primary: #4F46E5;
+  --primary-foreground: #FFFFFF;
+  --secondary: oklch(0.97 0.01 260);
+  --secondary-foreground: oklch(0.205 0.04 260);
+  --muted: oklch(0.97 0.01 260);
+  --muted-foreground: oklch(0.556 0.03 260);
+  --accent: #EEF2FF;
+  --accent-foreground: #312E81;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.922 0.01 260);
+  --input: oklch(0.922 0.01 260);
+  --ring: #4F46E5;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0B132B;
+  --sidebar-primary: #4F46E5;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EEF2FF;
+  --sidebar-accent-foreground: #312E81;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #4F46E5;
 }
 
 body {
@@ -197,8 +203,8 @@ body {
   padding: 0.625rem 1.25rem;
   border-radius: var(--radius-tech-sm);
   background-color: var(--color-brand-primary);
-  color: #0F172A;
-  box-shadow: 0 4px 12px rgba(255, 184, 0, 0.25);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   user-select: none;
@@ -207,13 +213,13 @@ body {
 
 .btn-primary:hover {
   background-color: var(--color-brand-primary-hover);
-  box-shadow: 0 6px 18px rgba(255, 184, 0, 0.35);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.38);
   transform: translateY(-1px);
 }
 
 .btn-primary:active {
   transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(255, 184, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.2);
 }
 
 .btn-dark {
@@ -225,9 +231,9 @@ body {
   line-height: 1.25rem;
   padding: 0.625rem 1.25rem;
   border-radius: var(--radius-tech-sm);
-  background-color: #0F172A;
+  background-color: var(--color-brand-navy);
   color: #FFFFFF;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   user-select: none;
@@ -235,9 +241,9 @@ body {
 }
 
 .btn-dark:hover {
-  background-color: #1E293B;
+  background-color: #16203D;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(11, 19, 43, 0.25);
 }
 
 .btn-dark:active {
@@ -254,7 +260,7 @@ body {
   padding: 0.625rem 1.25rem;
   border-radius: var(--radius-tech-sm);
   background-color: transparent;
-  color: #0F172A;
+  color: var(--color-brand-navy);
   border: 1px solid #D1D5DB;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
@@ -311,8 +317,8 @@ body {
 }
 
 .tech-card-dark {
-  background-color: var(--color-brand-dark-surface);
-  border: 1px solid var(--color-brand-dark-border);
+  background-color: var(--color-brand-navy-surface);
+  border: 1px solid var(--color-brand-navy-border);
   border-radius: var(--radius-tech-lg);
   color: #FFFFFF;
   overflow: hidden;
@@ -343,9 +349,9 @@ body {
 }
 
 .spec-chip-brand {
-  background-color: var(--color-brand-amber-light);
-  color: #92400E;
-  border-color: var(--color-brand-amber-border);
+  background-color: var(--color-brand-indigo-light);
+  color: #4338CA;
+  border-color: var(--color-brand-indigo-border);
 }
 
 .spec-chip-dark {
@@ -360,7 +366,7 @@ body {
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  color: #0F172A;
+  color: var(--color-brand-navy);
 }
 
 .tech-heading-section {
@@ -368,7 +374,7 @@ body {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #0F172A;
+  color: var(--color-brand-navy);
 }
 
 .tech-subheading {
@@ -382,7 +388,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #F59E0B;
+  color: var(--color-brand-primary);
 }
 
 @theme inline {
@@ -429,37 +435,37 @@ body {
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: #0B132B;
+  --foreground: #F8FAFC;
+  --card: #101935;
+  --card-foreground: #F8FAFC;
+  --popover: #101935;
+  --popover-foreground: #F8FAFC;
+  --primary: #6366F1;
+  --primary-foreground: #FFFFFF;
+  --secondary: #1E293B;
+  --secondary-foreground: #F8FAFC;
+  --muted: #1E293B;
+  --muted-foreground: #94A3B8;
+  --accent: #1E293B;
+  --accent-foreground: #F8FAFC;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #6366F1;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: #101935;
+  --sidebar-foreground: #F8FAFC;
+  --sidebar-primary: #6366F1;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1E293B;
+  --sidebar-accent-foreground: #F8FAFC;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #6366F1;
 }
 
 @layer base {

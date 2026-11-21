@@ -122,11 +122,11 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#FFB800] selection:text-slate-950 font-sans antialiased">
+    <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-brand-primary selection:text-white font-sans antialiased">
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 bg-slate-950 text-white px-4 py-2.5 rounded-lg shadow-xl border border-slate-800 text-xs font-semibold flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#FFB800]" />
+          <span className="w-2 h-2 rounded-full bg-brand-primary" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -144,7 +144,7 @@ export default function HomePage() {
           <div className="w-full max-w-sm bg-white h-full shadow-2xl p-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                <h3 className="font-bold text-base text-slate-900">
+                <h3 className="font-bold text-base text-slate-900 ">
                   Giỏ hàng ({cartCount})
                 </h3>
                 <button
@@ -211,7 +211,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Headline & Pitch */}
             <div className="lg:col-span-7 space-y-5 text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#D97706] font-mono">
+              <span className="text-xs font-bold uppercase tracking-widest text-brand-primary font-mono">
                 PRECISION TECH ACCESSORIES
               </span>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-950 leading-[1.15]">
@@ -262,12 +262,13 @@ export default function HomePage() {
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-2xl font-extrabold text-slate-950 tracking-tight">
-                  Danh mục phụ kiện
+                  Sản phẩm nổi bật
                 </h2>
-                <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
-                  {products.length} sản phẩm
-                </span>
               </div>
+              <p className="text-slate-600 text-sm sm:text-base max-w-lg leading-relaxed">
+                Chọn phụ kiện phù hợp cho laptop, điện thoại và góc làm việc của
+                bạn
+              </p>
             </div>
           </div>
 
@@ -293,11 +294,11 @@ export default function HomePage() {
       {/* 4. ECOSYSTEM HIGHLIGHT (3 Trụ Cột: Tai nghe, Pin dự phòng & Sạc GaN với ảnh và thông số riêng biệt, chính xác) */}
       <section
         id="ecosystem"
-        className="py-16 sm:py-24 bg-slate-950 text-white"
+        className="py-16 sm:py-24 bg-brand-navy text-white"
       >
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <span className="text-xs font-mono font-bold text-[#FFB800] uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-brand-accent uppercase tracking-wider">
               HỆ SINH THÁI ĐỒNG BỘ
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1">
@@ -313,7 +314,7 @@ export default function HomePage() {
           {/* 3 Pillars Grid: Each has its OWN image and its OWN accurate specs */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1: Headphone & Audio */}
-            <div className="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between overflow-hidden">
+            <div className="rounded-2xl bg-brand-navy-surface border border-slate-800 p-6 flex flex-col justify-between overflow-hidden">
               <div>
                 <div className="aspect-16/10 rounded-xl overflow-hidden mb-5 bg-slate-800">
                   <img
@@ -322,7 +323,7 @@ export default function HomePage() {
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="text-[11px] font-mono font-bold text-[#FFB800] uppercase tracking-wider">
+                <div className="text-[11px] font-mono font-bold text-brand-accent uppercase tracking-wider">
                   ÂM THANH HI-RES
                 </div>
                 <h3 className="text-lg font-bold text-white mt-1">
@@ -336,7 +337,7 @@ export default function HomePage() {
 
               <div className="pt-5 mt-6 border-t border-slate-800 grid grid-cols-3 gap-2 text-center">
                 <div>
-                  <div className="text-xl font-black font-mono text-[#FFB800]">
+                  <div className="text-xl font-black font-mono text-brand-accent">
                     -48dB
                   </div>
                   <div className="text-[10px] text-slate-400 mt-0.5">
@@ -363,7 +364,7 @@ export default function HomePage() {
             </div>
 
             {/* Card 2: Powerbank */}
-            <div className="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between overflow-hidden">
+            <div className="rounded-2xl bg-brand-navy-surface border border-slate-800 p-6 flex flex-col justify-between overflow-hidden">
               <div>
                 <div className="aspect-16/10 rounded-xl overflow-hidden mb-5 bg-slate-800">
                   <img
@@ -372,7 +373,7 @@ export default function HomePage() {
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="text-[11px] font-mono font-bold text-[#FFB800] uppercase tracking-wider">
+                <div className="text-[11px] font-mono font-bold text-brand-accent uppercase tracking-wider">
                   NĂNG LƯỢNG DI ĐỘNG
                 </div>
                 <h3 className="text-lg font-bold text-white mt-1">
@@ -386,7 +387,7 @@ export default function HomePage() {
 
               <div className="pt-5 mt-6 border-t border-slate-800 grid grid-cols-3 gap-2 text-center">
                 <div>
-                  <div className="text-xl font-black font-mono text-[#FFB800]">
+                  <div className="text-xl font-black font-mono text-brand-accent">
                     18mm
                   </div>
                   <div className="text-[10px] text-slate-400 mt-0.5">
@@ -413,7 +414,7 @@ export default function HomePage() {
             </div>
 
             {/* Card 3: GaN Fast Charger */}
-            <div className="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between overflow-hidden">
+            <div className="rounded-2xl bg-brand-navy-surface border border-slate-800 p-6 flex flex-col justify-between overflow-hidden">
               <div>
                 <div className="aspect-16/10 rounded-xl overflow-hidden mb-5 bg-slate-800">
                   <img
@@ -422,7 +423,7 @@ export default function HomePage() {
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="text-[11px] font-mono font-bold text-[#FFB800] uppercase tracking-wider">
+                <div className="text-[11px] font-mono font-bold text-brand-accent uppercase tracking-wider">
                   CÔNG NGHỆ BÁN DẪN
                 </div>
                 <h3 className="text-lg font-bold text-white mt-1">
@@ -436,7 +437,7 @@ export default function HomePage() {
 
               <div className="pt-5 mt-6 border-t border-slate-800 grid grid-cols-3 gap-2 text-center">
                 <div>
-                  <div className="text-xl font-black font-mono text-[#FFB800]">
+                  <div className="text-xl font-black font-mono text-brand-accent">
                     140W
                   </div>
                   <div className="text-[10px] text-slate-400 mt-0.5">

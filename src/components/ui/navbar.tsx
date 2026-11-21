@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Container } from "./container";
+import { ShoppingCart } from "lucide-react";
 
 export interface NavbarProps {
   activePage: "products" | "admin";
@@ -22,10 +23,10 @@ export function Navbar({ activePage, cartCount = 0, onOpenCart }: NavbarProps) {
         <Container className="flex items-center justify-between h-16 gap-6">
           {/* Brand Logo & Simple Navigation Tabs */}
           <div className="flex items-center gap-8 h-full shrink-0">
-            <Link href="/" className="flex items-center gap-1.5">
+            <Link href="/" className="flex items-center gap-1.5 group">
               <span className="font-black text-xl tracking-tight text-slate-950 flex items-center">
-                TECH<span className="text-[#FFB800]">GEAR</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800] ml-0.5 inline-block" />
+                TECH<span className="text-brand-primary">GEAR</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-primary ml-0.5 inline-block group-hover:scale-125 transition-transform" />
               </span>
             </Link>
 
@@ -35,7 +36,7 @@ export function Navbar({ activePage, cartCount = 0, onOpenCart }: NavbarProps) {
                 href="/"
                 className={`h-full inline-flex items-center text-sm transition-colors border-b-2 pt-0.5 ${
                   activePage === "products"
-                    ? "border-[#FFB800] text-slate-950 font-bold"
+                    ? "border-brand-primary text-brand-primary font-bold"
                     : "border-transparent text-slate-500 hover:text-slate-900 font-medium"
                 }`}
               >
@@ -46,7 +47,7 @@ export function Navbar({ activePage, cartCount = 0, onOpenCart }: NavbarProps) {
                 href="/admin"
                 className={`h-full inline-flex items-center text-sm transition-colors border-b-2 pt-0.5 ${
                   activePage === "admin"
-                    ? "border-[#FFB800] text-slate-950 font-bold"
+                    ? "border-brand-primary text-brand-primary font-bold"
                     : "border-transparent text-slate-500 hover:text-slate-900 font-medium"
                 }`}
               >
@@ -61,10 +62,11 @@ export function Navbar({ activePage, cartCount = 0, onOpenCart }: NavbarProps) {
             {onOpenCart && (
               <button
                 onClick={onOpenCart}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-950 hover:bg-slate-800 text-white transition-colors cursor-pointer shrink-0"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-sm text-xs font-semibold bg-slate-950 hover:bg-slate-800 text-white transition-colors cursor-pointer shrink-0"
               >
+                <ShoppingCart className="size-4" />
                 <span>Giỏ hàng</span>
-                <span className="w-4 h-4 rounded-full bg-[#FFB800] text-slate-950 text-[10px] font-mono font-bold flex items-center justify-center">
+                <span className="w-4 h-4 rounded-full bg-brand-primary text-white text-[10px] font-mono font-bold flex items-center justify-center">
                   {cartCount}
                 </span>
               </button>
@@ -110,7 +112,7 @@ export function Navbar({ activePage, cartCount = 0, onOpenCart }: NavbarProps) {
               onClick={() => setMobileMenuOpen(false)}
               className={`pb-1 border-b-2 transition-colors ${
                 activePage === "products"
-                  ? "border-[#FFB800] text-slate-950 font-bold"
+                  ? "border-brand-primary text-brand-primary font-bold"
                   : "border-transparent text-slate-500 hover:text-slate-900"
               }`}
             >
@@ -122,7 +124,7 @@ export function Navbar({ activePage, cartCount = 0, onOpenCart }: NavbarProps) {
               onClick={() => setMobileMenuOpen(false)}
               className={`pb-1 border-b-2 transition-colors ${
                 activePage === "admin"
-                  ? "border-[#FFB800] text-slate-950 font-bold"
+                  ? "border-brand-primary text-brand-primary font-bold"
                   : "border-transparent text-slate-500 hover:text-slate-900"
               }`}
             >

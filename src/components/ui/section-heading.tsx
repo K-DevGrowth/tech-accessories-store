@@ -24,7 +24,7 @@ export function SectionHeading({
   return (
     <div className={`flex flex-col mb-10 sm:mb-14 ${alignmentClass} ${className}`.trim()}>
       {eyebrow && (
-        <span className="tech-caption mb-2.5 font-bold tracking-widest text-[#FFB800]">
+        <span className="tech-caption mb-2.5 font-bold tracking-widest text-brand-primary">
           {eyebrow}
         </span>
       )}
