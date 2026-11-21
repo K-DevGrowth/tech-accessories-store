@@ -13,7 +13,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
 } from "@/components/ui/sidebar";
 import {
   LayoutDashboard,
@@ -59,14 +58,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
 
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar
+      collapsible="none"
+      className="w-64 shrink-0 border-r border-slate-200/80 bg-white min-h-screen"
+      {...props}
+    >
       {/* 1. Header with workspace badge */}
-      <SidebarHeader className="border-b border-slate-100 px-4 py-3 group-data-[collapsible=icon]:p-2">
-        <div className="flex items-center gap-2.5 group-data-[collapsible=icon]:justify-center">
+      <SidebarHeader className="border-b border-slate-100 px-4 py-3">
+        <div className="flex items-center gap-2.5">
           <div className="size-8 rounded-lg bg-slate-950 text-[#FFB800] flex items-center justify-center shrink-0 shadow-xs font-bold text-sm">
             TG
           </div>
-          <div className="flex flex-col min-w-0 group-data-[collapsible=icon]:hidden">
+          <div className="flex flex-col min-w-0">
             <span className="font-bold text-xs text-slate-950 truncate">
               TechGear Admin
             </span>
@@ -92,17 +95,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       render={<Link href={item.url} />}
-                      tooltip={item.title}
                       className={`h-9.5 px-3 rounded-lg text-xs font-medium transition-all ${
                         pathname === item.url
                           ? "bg-slate-900 text-white font-semibold hover:bg-slate-900 hover:text-white shadow-xs"
                           : "text-slate-600 hover:text-slate-950 hover:bg-slate-100/80"
                       }`}
                     >
-                      <Icon className={`size-4 shrink-0 `} />
+                      <Icon className="size-4 shrink-0" />
                       <span className="truncate flex-1">{item.title}</span>
                       {item.badge && (
-                        <span className="group-data-[collapsible=icon]:hidden text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-100 text-slate-500 border border-slate-200">
+                        <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-100 text-slate-500 border border-slate-200">
                           {item.badge}
                         </span>
                       )}
@@ -116,23 +118,20 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
 
       {/* 3. Footer with quick link to store */}
-      <SidebarFooter className="border-t border-slate-100 p-2 group-data-[collapsible=icon]:p-1">
+      <SidebarFooter className="border-t border-slate-100 p-2 mt-auto">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
               render={<Link href="/" />}
-              tooltip="Về trang sản phẩm"
               className="h-9 px-3 text-xs text-slate-600 hover:text-slate-950 hover:bg-slate-100 rounded-lg transition-colors"
             >
               <Store className="size-4 shrink-0 text-slate-500" />
               <span className="truncate flex-1">Xem trang bán hàng</span>
-              <ExternalLink className="size-3 text-slate-400 group-data-[collapsible=icon]:hidden" />
+              <ExternalLink className="size-3 text-slate-400" />
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
-
-      <SidebarRail />
     </Sidebar>
   );
 }

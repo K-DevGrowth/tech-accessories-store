@@ -2,10 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { AppSidebar } from "@/components/admin/app-sidebar";
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 const getPageTitle = (pathname: string) => {
   if (pathname.startsWith("/admin/products")) return "Quản lý sản phẩm";
@@ -24,21 +21,23 @@ export default function DashboardLayout({
 
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <div className="flex min-h-screen w-full bg-slate-50/60">
+        {/* Sidebar cố định */}
+        <AppSidebar />
 
-      <SidebarInset className="min-h-screen bg-slate-50/60 flex flex-col">
-        {/* Header với Title của trang lên đầu, đã bỏ trigger */}
-        <header className="flex h-14 shrink-0 items-center justify-between border-b border-slate-200/80 bg-white px-4 sm:px-6">
-          <h1 className="text-base sm:text-lg font-bold text-slate-900">
-            {title}
-          </h1>
-        </header>
+        {/* Khu vực nội dung chính */}
+        <div className="flex-1 flex flex-col min-h-screen">
+          <header className="flex h-14 shrink-0 items-center justify-between border-b border-slate-200/80 bg-white px-4 sm:px-6">
+            <h1 className="text-base sm:text-lg font-bold text-slate-900">
+              {title}
+            </h1>
+          </header>
 
-        {/* Main Children Page Content */}
-        <main className="flex-1 p-4 lg:p-6">
-          <div className="max-w-7xl mx-auto space-y-6">{children}</div>
-        </main>
-      </SidebarInset>
+          <main className="flex-1 p-4 lg:p-6">
+            <div className="max-w-7xl mx-auto space-y-6">{children}</div>
+          </main>
+        </div>
+      </div>
     </SidebarProvider>
   );
 }
