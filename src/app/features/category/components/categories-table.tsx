@@ -1,4 +1,10 @@
-export default function CategoriesTable({ categories }) {
+import type { Category } from "@/db/schema/catalog";
+
+export default function CategoriesTable({
+  categories,
+}: {
+  categories: Category[];
+}) {
   return (
     <table className="w-full text-left text-sm">
       <thead className="border-b border-gray-200 bg-gray-50 text-xs uppercase text-gray-600">
