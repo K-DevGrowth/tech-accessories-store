@@ -5,7 +5,19 @@ import { Suspense } from "react";
 import Link from "next/link";
 import CategoriesTable from "@/app/features/category/components/categories-table";
 
-export default async function CatalogPage({
+export default function CatalogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tab?: string }>;
+}) {
+  return (
+    <Suspense>
+      <CatalogBody searchParams={searchParams} />
+    </Suspense>
+  );
+}
+
+async function CatalogBody({
   searchParams,
 }: {
   searchParams: Promise<{ tab?: string }>;
