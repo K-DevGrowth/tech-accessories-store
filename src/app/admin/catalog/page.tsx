@@ -2,69 +2,64 @@ import { CreateCategoryDialog } from "@/app/features/category/components/create-
 import PageHeader from "@/components/admin/shared/page-header";
 import { getCategories } from "@/app/features/category/category-queries";
 import { Suspense } from "react";
+import Link from "next/link";
+import CategoriesTable from "@/app/features/category/components/categories-table";
 
-export default function CategoriesPage() {
+export default async function CatalogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tab?: string }>;
+}) {
+  const { tab } = await searchParams;
+  const activeTab = tab === "brands" ? "brands" : "categories";
+  const isBrands = activeTab === "brands";
+
   return (
     <>
       <PageHeader
         title="Danh mục"
-        description="Quản lý danh mục sản phẩm"
+        description={`Quản lý ${isBrands ? "hãng" : "danh mục"} sản phẩm`}
         action={<CreateCategoryDialog />}
       />
-      <div className="space-y-6">
-        <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white">
-          <table className="w-full text-left text-sm">
-            <thead className="border-b border-gray-200 bg-gray-50 text-xs uppercase text-gray-600">
-              <tr>
-                <th className="px-4 py-3 font-medium">Thứ tự</th>
-                <th className="px-4 py-3 font-medium">Tên danh mục</th>
-                <th className="px-4 py-3 font-medium">Slug</th>
-                <th className="px-4 py-3 font-medium">Ngày tạo</th>
-                <th className="px-4 py-3 text-right font-medium">Thao tác</th>
-              </tr>
-            </thead>
 
-            <Suspense>
-              <CategoriesContent />
-            </Suspense>
-          </table>
+      <div className="space-y-6">
+        <div className="border-b border-gray-200">
+          <nav className="-mb-px flex gap-6">
+            <Link
+              href="?tab=categories"
+              replace
+              className={`border-b-2 pb-3 text-sm font-medium transition-colors ${
+                !isBrands
+                  ? "border-gray-900 text-gray-900"
+                  : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+              }`}
+            >
+              Danh mục
+            </Link>
+            <Link
+              href="?tab=brands"
+              replace
+              className={`border-b-2 pb-3 text-sm font-medium transition-colors ${
+                isBrands
+                  ? "border-gray-900 text-gray-900"
+                  : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+              }`}
+            >
+              Hãng
+            </Link>
+          </nav>
+        </div>
+
+        <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white">
+          <Suspense>{isBrands ? "" : <CatalogContent />}</Suspense>
         </div>
       </div>
     </>
   );
 }
 
-async function CategoriesContent() {
+async function CatalogContent() {
   const categories = await getCategories();
 
-  return (
-    <tbody className="divide-y divide-gray-200">
-      {categories.length === 0 ? (
-        <tr>
-          <td colSpan={5} className="px-4 py-8 text-center text-gray-500">
-            Chưa có danh mục nào.
-          </td>
-        </tr>
-      ) : (
-        categories.map((item) => (
-          <tr key={item.id} className="hover:bg-gray-50">
-            <td className="px-4 py-3 text-gray-500">{item.sortOrder}</td>
-            <td className="px-4 py-3 font-medium text-gray-900">{item.name}</td>
-            <td className="px-4 py-3 font-mono text-xs text-gray-600">
-              {item.slug}
-            </td>
-            <td className="px-4 py-3 text-gray-500">
-              {new Date(item.createdAt).toLocaleDateString("vi-VN")}
-            </td>
-            <td className="px-4 py-3 text-right">
-              <div className="inline-flex items-center gap-3">
-                <button className="text-blue-600 hover:underline">Sửa</button>
-                <button className="text-red-600 hover:underline">Xóa</button>
-              </div>
-            </td>
-          </tr>
-        ))
-      )}
-    </tbody>
-  );
+  return <CategoriesTable categories={categories} />;
 }

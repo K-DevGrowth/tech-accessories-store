@@ -35,3 +35,4 @@ export async function createCategory(formData: FormData) {
 
   revalidatePath("/admin/catalog");
 }
+
