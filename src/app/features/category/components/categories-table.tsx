@@ -1,4 +1,6 @@
 import type { Category } from "@/db/schema/catalog";
+import { DeleteCategoryDialog } from "./delete-category-dialog";
+import { EditCategoryDialog } from "./edit-category-dialog";
 
 export default function CategoriesTable({
   categories,
@@ -38,8 +40,8 @@ export default function CategoriesTable({
               </td>
               <td className="px-4 py-3 text-right">
                 <div className="inline-flex items-center gap-3">
-                  <button className="text-blue-600 hover:underline">Sửa</button>
-                  <button className="text-red-600 hover:underline">Xóa</button>
+                  <EditCategoryDialog category={item} />
+                  <DeleteCategoryDialog id={item.id} name={item.name} />
                 </div>
               </td>
             </tr>
