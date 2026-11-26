@@ -27,7 +27,7 @@ export async function createCategory(formData: FormData) {
 export type DeleteCategoryResult = { ok: true } | { ok: false; error: string };
 
 export async function deleteCategory(
-  id: string,
+  id: number,
 ): Promise<DeleteCategoryResult> {
   const categoryId = z.number().int().positive().parse(id);
 
